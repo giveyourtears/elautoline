@@ -1,0 +1,13 @@
+{
+    "/js/admin/vendor.js": "/js/admin/vendor.js",
+    "/js/admin/app.js": "/js/admin/app.js",
+    "/js/client/vendor.js": "/js/client/vendor.js",
+    "/js/client/app.js": "/js/client/app.js",
+    "/css/client/vendor.css": "/css/client/vendor.css",
+    "/css/admin/app.css": "/css/admin/app.css",
+    "/css/admin/vendor.css": "/css/admin/vendor.css",
+    "/css/admin/login.css": "/css/admin/login.css",
+    "/css/client/_normalize.css": "/css/client/_normalize.css",
+    "/css/client/base.css": "/css/client/base.css",
+    "/css/client/app.css": "/css/client/app.css"
+}

@@ -1,0 +1,67 @@
+@import "vars";
+@function rem($size) {
+    @return $size / $root-font-size * 1rem;
+}
+
+@function cvw($width){
+  @return 100vw * ($width / 1920px)
+}
+
+@function cvwl($width){
+  @return 100vw * ($width / $laptop-base-width)
+}
+
+@function cvwt($width){
+  @return 100vw * ($width / 768px)
+}
+
+@function cvh($height){
+  @return 100vh * ($height / 1080px)
+}
+
+@function cvm($width){
+  @return 100vw * ($width / 375px)
+}
+
+@mixin ms{
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
+@mixin btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s;
+
+  cursor: pointer;
+  font-size: cvw(16px);
+  line-height: 1;
+  width: cvw(248px);
+  height: cvw(56px);
+  border: solid 1px $c-blue;
+
+  @include bp(lg){
+    font-size: cvwl(14px);
+    width: cvwl(211px);
+    height: cvwl(48px);
+  }
+}
+
+@mixin bp($class) {
+  @if $class == lg {
+    //@media (max-width: 1440px) and (min-width: 1024px) {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  } @else if $class == md {
+    @media (max-width: 1023px) and (min-width: 768px) {
+      @content;
+    }
+  } @else if $class == sm {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+}

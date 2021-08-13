@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Domains",
+        "locale": [
+            {
+                "language": "en"
+            }
+        ],
+        "subcategory": [
+            {
+                "name": "Stuck In Traffic",
+                "icon": null,
+                "sort_order": null
+            }
+        ]
+    },
+    {
+        "name": "Чувства",
+        "locale": [
+            {
+                "language": "ru"
+            }
+        ],
+        "subcategory": [
+            {
+                "name": "Злость",
+                "icon": "http://127.0.0.1:8000/images//private/var/folders/0r/8ypqsl4d27jfyy4l2p06dwrc0000gn/T/phpsy5L2M",
+                "sort_order": null
+            },
+            {
+                "name": "Радость",
+                "icon": null,
+                "sort_order": null
+            }
+        ]
+    },
+    {
+        "name": "Ситуации",
+        "locale": [
+            {
+                "language": "ru"
+            }
+        ],
+        "subcategory": [
+            {
+                "name": "Бизнес встреча",
+                "icon": null,
+                "sort_order": null
+            },
+            {
+                "name": "Свадьба",
+                "icon": null,
+                "sort_order": null
+            }
+        ]
+    },
+    {
+        "name": "Cases",
+        "locale": [
+            {
+                "language": "en"
+            }
+        ],
+        "subcategory": [
+            {
+                "name": "Flight New",
+                "icon": "http://127.0.0.1:8000/images/icons/Q9pmhdfIbg.png",
+                "sort_order": null
+            }
+        ]
+    }
+]
