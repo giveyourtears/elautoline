@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ReferencePageRequest extends FormRequest
+class AboutPageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,7 +19,8 @@ class ReferencePageRequest extends FormRequest
     public function attributes()
     {
         return [
-            'reference_name' => 'Имя рекомендации',
+            'title' => 'Заголовок',
+            'description' => 'Описание'
         ];
     }
 
@@ -32,7 +33,8 @@ class ReferencePageRequest extends FormRequest
     {
         return [
             'id' => "",
-            'reference_name' => "required|string|max:255"
+            'title' => "required|string|max:255",
+            'description' => "required|string"
         ];
     }
 }

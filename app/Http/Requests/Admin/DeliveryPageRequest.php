@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BraPageRequest extends FormRequest
+class DeliveryPageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,7 +19,8 @@ class BraPageRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name_size' => 'Название размера',
+            'title' => 'Название',
+            'description' => 'Название',
         ];
     }
 
@@ -32,7 +33,8 @@ class BraPageRequest extends FormRequest
     {
         return [
             'id' => "",
-            'name_size' => "required|string|max:255"
+            'title' => "required|string|max:255",
+            'description' => "required|string|max:255",
         ];
     }
 }

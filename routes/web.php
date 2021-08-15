@@ -3,9 +3,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Client\HomeController;
+use App\Http\Controllers\Client\AboutController;
 use App\Http\Controllers\Client\RequestController;
 use App\Http\Controllers\Admin\ReferenceGuideController;
 use App\Http\Controllers\Admin\BraSizeController;
+use App\Http\Controllers\Admin\AboutPageController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\HomePageController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -24,6 +26,7 @@ use App\Http\Controllers\Admin\OrdersController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('client.home');
+Route::get('/about', [AboutController::class, 'index'])->name('client.about');
 Route::post('/request/add', [RequestController::class, 'add'])->name('client.request.add');
 
 Route::prefix('admin')->name('admin.')->group(
@@ -33,7 +36,7 @@ Route::prefix('admin')->name('admin.')->group(
         Route::get('homepage', [HomePageController::class, 'index'])->name('homepage.index')->middleware('auth');
         Route::post('homepage/update', [HomePageController::class, 'update'])->name('homepage.update')->middleware('auth');
         Route::resource('values', ValuesController::class);
-        Route::resource('reference', ReferenceGuideController::class);
+        Route::resource('aboutpage', AboutPageController::class);
         Route::resource('bra', BraSizeController::class);
         Route::resource('orders', OrdersController::class);
     }

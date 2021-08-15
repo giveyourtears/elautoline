@@ -4,33 +4,32 @@ namespace App\Http\Controllers\Admin;
 
 use App\Core\Services\Infrastructure\IImageService;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\AboutPageRequest;
+use App\Http\Requests\Admin\AddBraRequest;
 use App\Http\Requests\Admin\AddReferenceRequest;
-use App\Http\Requests\Admin\Blog\AddBlogRequest;
-use App\Http\Requests\Admin\Blog\UpdateBlogRequest;
+use App\Http\Requests\Admin\DeliveryPageRequest;
 use App\Http\Requests\Admin\HomePageRequest;
 use App\Http\Requests\Admin\ReferencePageRequest;
-use App\Models\Blog;
-use App\Models\ReferenceGuide;
+use App\Models\About;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Inertia\Inertia;
 
-class ReferenceGuideController extends Controller
+class AboutPageController extends Controller
 {
     public function index()
     {
-        $references = DB::table('reference_guides')->paginate(10);
+        $abouts = DB::table('abouts')->paginate(10);
         return view('admin.aboutpage.index', [
-            'references' => $references
+            'abouts' => $abouts
         ]);
     }
 
-    public function store(AddReferenceRequest $request)
+    public function store(AboutPageRequest $request)
     {
         $validated = $request->validated();
-        $reference = new ReferenceGuide($validated);
-        $reference->save();
+        $about = new About($validated);
+        $about->save();
 
         return response()->redirectToRoute('admin.aboutpage.index', ['success' => true]);
     }
@@ -42,22 +41,22 @@ class ReferenceGuideController extends Controller
 
     public function edit($id)
     {
-        return view('admin.aboutpage.edit')->with('aboutpage', ReferenceGuide::where('id', $id)->first());
+        return view('admin.aboutpage.edit')->with('about', About::where('id', $id)->first());
     }
 
-    public function update(ReferencePageRequest $request, $id)
+    public function update(AboutPageRequest $request, $id)
     {
         $validated = $request->validated();
-        $reference = ReferenceGuide::find($id);
-        $reference->fill($validated);
-        $reference->save();
+        $about = About::find($id);
+        $about->fill($validated);
+        $about->save();
 
         return response()->redirectToRoute('admin.aboutpage.index', ['success' => true]);
     }
 
     public function destroy($id)
     {
-        ReferenceGuide::find($id)->delete();
+        About::find($id)->delete();
         return back();
     }
 }

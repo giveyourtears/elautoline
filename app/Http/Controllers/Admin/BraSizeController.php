@@ -6,34 +6,30 @@ use App\Core\Services\Infrastructure\IImageService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AddBraRequest;
 use App\Http\Requests\Admin\AddReferenceRequest;
-use App\Http\Requests\Admin\Blog\AddBlogRequest;
-use App\Http\Requests\Admin\Blog\UpdateBlogRequest;
-use App\Http\Requests\Admin\BraPageRequest;
+use App\Http\Requests\Admin\DeliveryPageRequest;
 use App\Http\Requests\Admin\HomePageRequest;
 use App\Http\Requests\Admin\ReferencePageRequest;
-use App\Models\Blog;
-use App\Models\BraSize;
+use App\Models\Delivery;
 use App\Models\ReferenceGuide;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Inertia\Inertia;
 
 class BraSizeController extends Controller
 {
     public function index()
     {
-        $bra_sizes = DB::table('bra_sizes')->paginate(10);
+        $deliveries = DB::table('deliveries')->paginate(10);
         return view('admin.bra.index', [
-            'sizes' => $bra_sizes
+            'deliveries' => $deliveries
         ]);
     }
 
-    public function store(AddBraRequest $request)
+    public function store(DeliveryPageRequest $request)
     {
         $validated = $request->validated();
-        $bra = new BraSize($validated);
-        $bra->save();
+        $delivery = new Delivery($validated);
+        $delivery->save();
 
         return response()->redirectToRoute('admin.bra.index', ['success' => true]);
     }
@@ -45,22 +41,22 @@ class BraSizeController extends Controller
 
     public function edit($id)
     {
-        return view('admin.bra.edit')->with('bra', BraSize::where('id', $id)->first());
+        return view('admin.bra.edit')->with('delivery', Delivery::where('id', $id)->first());
     }
 
-    public function update(BraPageRequest $request, $id)
+    public function update(DeliveryPageRequest $request, $id)
     {
         $validated = $request->validated();
-        $bra = BraSize::find($id);
-        $bra->fill($validated);
-        $bra->save();
+        $delivery = Delivery::find($id);
+        $delivery->fill($validated);
+        $delivery->save();
 
         return response()->redirectToRoute('admin.bra.index', ['success' => true]);
     }
 
     public function destroy($id)
     {
-        BraSize::find($id)->delete();
+        Delivery::find($id)->delete();
         return back();
     }
 }

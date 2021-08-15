@@ -2,11 +2,11 @@
 
 @section('content')
 
-    <h1>Добавление</h1>
+    <h1>Редактирование</h1>
     <nav aria-label="breadcrumb" class="w-100">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Главная</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('admin.reference.index')}}">Список рекомендаций</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('admin.aboutpage.index')}}">Список рекомендаций</a></li>
         </ol>
     </nav>
     @if (count($errors) > 0)
@@ -28,24 +28,32 @@
             <div class="card">
                 <div class="card-header">
                     <span class="bi bi-pencil-fill"></span>
-                    Добавление
+                    Редактирование
                 </div>
                 <div class="card-body">
-                    <form action="{{route('admin.reference.store')}}" method="POST" class="form py-4"
+                    <form action="{{route('admin.aboutpage.update', [$reference])}}" method="POST" class="form py-4"
                           enctype="multipart/form-data">
                         @csrf
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Описание расширения</a>
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Описание "О нас"</a>
                             </li>
                         </ul>
+                        @method('PATCH')
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="form-group row border-bottom py-3">
-                                    <label for="reference_name" class="col-sm-2 col-form-label">
-                                        Заголовок</label>
+                                    <label for="title" class="col-sm-2 col-form-label">
+                                        Название</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="reference_name" id="reference_name">
+                                        <input type="text" class="form-control" name="title" id="title" value="{{$about->title}}">
+                                    </div>
+                                </div>
+                                <div class="form-group row border-bottom py-3">
+                                    <label for="description" class="col-sm-2 col-form-label">
+                                        Описание</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="description" id="description" value="{{$about->description}}">
                                     </div>
                                 </div>
                             </div>

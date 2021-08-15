@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\HomePageRequest;
 use App\Models\Blog;
 use App\Models\BraSize;
+use App\Models\Delivery;
 use App\Models\HomePage;
 
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class HomePageController extends Controller
     }
     public function index()
     {
-        $data = HomePage::all()->first();
+        $data = Delivery::all()->first();
         return view('admin.homepage.index',[
             'data' => $data
         ]);

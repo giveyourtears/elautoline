@@ -31,7 +31,7 @@
                     Редактирование
                 </div>
                 <div class="card-body">
-                    <form action="{{route('admin.bra.update', [$bra])}}" method="POST" class="form py-4"
+                    <form action="{{route('admin.bra.update', [$delivery])}}" method="POST" class="form py-4"
                           enctype="multipart/form-data">
                         @csrf
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -43,10 +43,17 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="form-group row border-bottom py-3">
-                                    <label for="name_size" class="col-sm-2 col-form-label">
+                                    <label for="title" class="col-sm-2 col-form-label">
                                         Название</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="name_size" id="name_size" value="{{$bra->name_size}}">
+                                        <input type="text" class="form-control" name="title" id="title" value="{{$delivery->title}}">
+                                    </div>
+                                </div>
+                                <div class="form-group row border-bottom py-3">
+                                    <label for="description" class="col-sm-2 col-form-label">
+                                        Описание</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="description" id="description" value="{{$delivery->description}}">
                                     </div>
                                 </div>
                             </div>

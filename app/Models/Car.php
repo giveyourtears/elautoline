@@ -1,13 +1,15 @@
 <?php
+
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BraSize extends Model
+class Car extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name_size'];
+    protected $fillable = ['title', 'price', 'year', 'mileage', 'description', 'volume'];
 
     public $timestamps = false;
 }

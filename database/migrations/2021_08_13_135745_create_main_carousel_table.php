@@ -13,9 +13,11 @@ class CreateMainCarouselTable extends Migration
      */
     public function up()
     {
-        Schema::create('main_carousel', function (Blueprint $table) {
+        Schema::create('main_carousels', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('main_cover');
+            $table->string('main_title');
+            $table->string('main_description');
         });
     }
 
@@ -26,6 +28,6 @@ class CreateMainCarouselTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('main_carousel');
+        Schema::dropIfExists('main_carousels');
     }
 }

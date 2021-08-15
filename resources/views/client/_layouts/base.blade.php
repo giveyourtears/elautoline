@@ -46,7 +46,6 @@
                 <ul>
                     <li><a class="nav-link scrollto active" href="">Главная</a></li>
                     <li><a class="nav-link scrollto" href="/about">О нас</a></li>
-                    <li><a class="nav-link scrollto" href="/contacts">Контакты</a></li>
                     <li><a class="nav-link scrollto" href="/calcdelievery">Доставка</a></li>
 {{--                    {/* <li><a class="nav-link scrollto" href="#team">Team</a></li> */}--}}
 {{--                    {/* <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>--}}

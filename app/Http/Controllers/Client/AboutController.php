@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Core\Services\Infrastructure\IMailService;
 use App\Http\Controllers\Client\Base\ClientControllerBase;
+use App\Models\About;
 use App\Models\Blog;
 use App\Models\BraSize;
 use App\Models\Decor;
@@ -21,21 +22,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 
-class HomeController extends ClientControllerBase
+class AboutController extends ClientControllerBase
 {
     public function index(Request $request)
     {
-//        $data = HomePage::all()->first();
-          $deliveries = Delivery::all()->all();
-//        $data->boobs_link = substr(strrchr($data->boobs_link, '/'), 1 );
-//        $data->under_boobs_link = substr(strrchr($data->under_boobs_link, '/'), 1 );
-//        $sizes = BraSize::all();
-//        $references = ReferenceGuide::all();
-        return $this->view("client.home.index", [
-              'deliveries' => $deliveries
-//            'data' => $data,
-//            'sizes' => $sizes,
-//            'references' => $references
+        $abouts = About::all()->all();
+        return $this->view("client.about.index", [
+            'abouts' => $abouts
         ]);
     }
 }

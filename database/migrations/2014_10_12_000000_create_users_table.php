@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             array(
                 'name' => 'Admin',
                 'email' => 'admin@admin.com',
-                'password' => Hash::make('admin')
+                'password' => Hash::make('eldoradius0233')
             )
         );
     }

@@ -49,44 +49,13 @@
     <section class="about-lists mb-3">
         <div class="container">
             <div class="row no-gutters">
-                <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up">
-                    <span>01</span>
-                    <h4>Процесс покупки</h4>
-                    <p>Внесение депозита. Участие и покупка по всей стране. Оплата за автомобиль.</p>
-                </div>
-
-                <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="100">
-                    <span>02</span>
-                    <h4>Транспортировка в порт</h4>
-                    <p>Транспортировка автомобиля в порт при помощи транспортных компаний. Средний срок доставки от
-                        2 до 10 дней.</p>
-                </div>
-
-                <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="200">
-                    <span>03</span>
-                    <h4>Погрузка в контейнер</h4>
-                    <p>Таможня США, примерный срок от 3 до 12 дней. Погрузка в контейнер. Предоставление номера
-                        контейнера, по которому вы сможете отследить движение.</p>
-                </div>
-
-                <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="300">
-                    <span>04</span>
-                    <h4>Перевозка автомобиля по морю</h4>
-                    <p>Контейнер погружается на корабль. Средний срок доставки от 30 до 60 дней.</p>
-                </div>
-
-                <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="400">
-                    <span>05</span>
-                    <h4>Таможня</h4>
-                    <p>Прибытие автомобиля в таможенный пункт заказчика. Таможенное оформление. Стоимость
-                        растаможки</p>
-                </div>
-
-                <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="500">
-                    <span>06</span>
-                    <h4>Получение авто</h4>
-                    <p>От клиента нужны оригиналы техпаспорта (Title), документ подтверждения приобретения (Bill of Sale/ invoice ), транспортная накладная (Bill of Landing).</p>
-                </div>
+                @foreach($deliveries as $delivery)
+                    <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up">
+                        <span>0{{$loop->iteration}}</span>
+                        <h4>{{$delivery->title}}</h4>
+                        <p>{{$delivery->description}}</p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
