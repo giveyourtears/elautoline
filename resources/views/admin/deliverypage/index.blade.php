@@ -5,7 +5,7 @@
     <nav aria-label="breadcrumb" class="w-100">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('admin.bra.index')}}">Редактирование справочника доставки</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('admin.deliverypage.index')}}">Редактирование справочника доставки</a></li>
         </ol>
     </nav>
     @if (count($errors) > 0)
@@ -30,7 +30,7 @@
                     Справочник доставки
                 </div>
                 <div class="card-body">
-                    <a href="{{route('admin.bra.create')}}" class="btn btn-primary">
+                    <a href="{{route('admin.deliverypage.create')}}" class="btn btn-primary">
                         <span class="bi bi-plus"></span>
                         Добавить
                     </a>
@@ -55,7 +55,7 @@
                                             <a href="/admin/bra/{{$delivery->id}}/edit" class="btn btn-success">
                                                 <span class="bi bi-pencil-fill"></span>
                                             </a>
-                                            <form action="{{ URL::route('admin.bra.destroy', $delivery->id) }}" method="POST" class="btn btn-danger">
+                                            <form action="{{ URL::route('admin.deliverypage.destroy', $delivery->id) }}" method="POST" class="btn btn-danger">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <button type="submit" class="delete-button bi bi-trash-fill"></button>

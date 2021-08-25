@@ -15,27 +15,15 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="https://images.unsplash.com/photo-1471479917193-f00955256257?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2048&q=100" alt="First slide"/>
-                <div class="carousel-caption d-none d-md-block">
-                    <h5 style="font-size: 18px">Доставка из США</h5>
-                    <p style="font-size: 30px">В кратчайшие сроки</p>
+            @foreach($carousels as $carousel)
+                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                    <img class="d-block w-100" src="{{assetImage($carousel->main_cover)}}" alt="carousel"/>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 style="font-size: 18px">{{$carousel->main_title}}</h5>
+                        <p style="font-size: 30px">{{$carousel->main_description}}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="https://images.unsplash.com/photo-1545056003-1f67120eceb4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2082&q=80" alt="Second slide"/>
-                <div class="carousel-caption d-none d-md-block">
-                    <h5 style="font-size: 30px">Растаможка авто из США</h5>
-                    <p style="font-size: 18px">Окажем помощь в этом!</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="https://wallpaperaccess.com/full/3723585.jpg" alt="Third slide"/>
-                <div class="carousel-caption d-none d-md-block">
-                    <h5 style="font-size: 30px">Услуги по подбору авто</h5>
-                    <p style="font-size: 18px">Быстрая и профессиональная помощь в подборе автомобильного транспорта из США</p>
-                </div>
-            </div>
+            @endforeach
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -52,7 +52,7 @@
                                     <td>{{$about->description}}</td>
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <a href="/admin/reference/{{$about->id}}/edit" class="btn btn-success">
+                                            <a href="/admin/aboutpage/{{$about->id}}/edit" class="btn btn-success">
                                                 <span class="bi bi-pencil-fill"></span>
                                             </a>
                                             <form action="{{ URL::route('admin.aboutpage.destroy', $about->id) }}" method="POST" class="btn btn-danger">

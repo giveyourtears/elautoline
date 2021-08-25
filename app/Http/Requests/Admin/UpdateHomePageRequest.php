@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class HomePageRequest extends FormRequest
+class UpdateHomePageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,12 +16,6 @@ class HomePageRequest extends FormRequest
         return true;
     }
 
-    public function attributes()
-    {
-        return [
-        ];
-    }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -30,7 +24,6 @@ class HomePageRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => "",
             'main_cover' => "image|mimes:jpg,png,jpeg,gif,svg|max:2048",
             'main_title' => "string|max:255",
             'main_description' => "string|max:255"

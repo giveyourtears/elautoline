@@ -15,12 +15,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class BraSizeController extends Controller
+class DeliveriesController extends Controller
 {
     public function index()
     {
         $deliveries = DB::table('deliveries')->paginate(10);
-        return view('admin.bra.index', [
+        return view('admin.deliverypage.index', [
             'deliveries' => $deliveries
         ]);
     }
@@ -31,17 +31,17 @@ class BraSizeController extends Controller
         $delivery = new Delivery($validated);
         $delivery->save();
 
-        return response()->redirectToRoute('admin.bra.index', ['success' => true]);
+        return response()->redirectToRoute('admin.deliverypage.index', ['success' => true]);
     }
 
     public function create()
     {
-        return view('admin.bra.create');
+        return view('admin.deliverypage.create');
     }
 
     public function edit($id)
     {
-        return view('admin.bra.edit')->with('delivery', Delivery::where('id', $id)->first());
+        return view('admin.deliverypage.edit')->with('delivery', Delivery::where('id', $id)->first());
     }
 
     public function update(DeliveryPageRequest $request, $id)
@@ -51,7 +51,7 @@ class BraSizeController extends Controller
         $delivery->fill($validated);
         $delivery->save();
 
-        return response()->redirectToRoute('admin.bra.index', ['success' => true]);
+        return response()->redirectToRoute('admin.deliverypage.index', ['success' => true]);
     }
 
     public function destroy($id)

@@ -2,11 +2,11 @@
 
 @section('content')
 
-    <h1>Редактирование</h1>
+    <h1>Добавление</h1>
     <nav aria-label="breadcrumb" class="w-100">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Главная</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('admin.aboutpage.index')}}">Список рекомендаций</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('admin.deliverypage.index')}}">Список доставок</a></li>
         </ol>
     </nav>
     @if (count($errors) > 0)
@@ -28,32 +28,46 @@
             <div class="card">
                 <div class="card-header">
                     <span class="bi bi-pencil-fill"></span>
-                    Редактирование
+                    Добавление
                 </div>
                 <div class="card-body">
-                    <form action="{{route('admin.aboutpage.update', [$about])}}" method="POST" class="form py-4"
+                    <form action="{{route('admin.homepage.store')}}" method="POST" class="form py-4"
                           enctype="multipart/form-data">
                         @csrf
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Описание "О нас"</a>
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Описание изображения</a>
                             </li>
                         </ul>
-                        @method('PATCH')
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="form-group row border-bottom py-3">
-                                    <label for="title" class="col-sm-2 col-form-label">
-                                        Название</label>
+                                    <label for="main_title" class="col-sm-2 col-form-label">
+                                        Заголовок</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="title" id="title" value="{{$about->title}}">
+                                        <input type="text" class="form-control" name="main_title" id="main_title">
                                     </div>
                                 </div>
                                 <div class="form-group row border-bottom py-3">
-                                    <label for="description" class="col-sm-2 col-form-label">
+                                    <label for="main_description" class="col-sm-2 col-form-label">
                                         Описание</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="description" id="description" value="{{$about->description}}">
+                                        <input type="text" class="form-control" name="main_description" id="main_description">
+                                    </div>
+                                </div>
+                                <div class="form-group row border-bottom py-3">
+                                    <label class="col-sm-2 col-form-label">Изображение</label>
+                                    <div class="image-upload-container" style="max-width:600px;">
+                                        <div class="image-edit">
+                                            <input class="image-upload" name="main_cover" type='file'
+                                                   accept=".png, .jpg, .jpeg, .gif, .svg"/>
+                                            <label class="btn-image-upload"> <span class="bi bi-card-image"></span></label>
+                                        </div>
+                                        <div class="image-preview-container"
+                                             style="width: 300px; height: 150px; position: relative;">
+                                            <div class="image-preview" data-init-image="">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

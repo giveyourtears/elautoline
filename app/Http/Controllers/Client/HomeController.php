@@ -13,6 +13,7 @@ use App\Models\HomePage;
 use App\Models\HomePageValues;
 use App\Models\Interior;
 use App\Models\Landscape;
+use App\Models\MainCarousel;
 use App\Models\Oversight;
 use App\Models\Package;
 use App\Models\Project;
@@ -27,12 +28,14 @@ class HomeController extends ClientControllerBase
     {
 //        $data = HomePage::all()->first();
           $deliveries = Delivery::all()->all();
+          $carousel_images = MainCarousel::all()->all();
 //        $data->boobs_link = substr(strrchr($data->boobs_link, '/'), 1 );
 //        $data->under_boobs_link = substr(strrchr($data->under_boobs_link, '/'), 1 );
 //        $sizes = BraSize::all();
 //        $references = ReferenceGuide::all();
         return $this->view("client.home.index", [
-              'deliveries' => $deliveries
+              'deliveries' => $deliveries,
+              'carousels' => $carousel_images
 //            'data' => $data,
 //            'sizes' => $sizes,
 //            'references' => $references

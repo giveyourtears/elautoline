@@ -6,8 +6,8 @@ use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\AboutController;
 use App\Http\Controllers\Client\RequestController;
 use App\Http\Controllers\Admin\ReferenceGuideController;
-use App\Http\Controllers\Admin\BraSizeController;
 use App\Http\Controllers\Admin\AboutPageController;
+use App\Http\Controllers\Admin\DeliveriesController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\HomePageController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -33,11 +33,10 @@ Route::prefix('admin')->name('admin.')->group(
     function () {
         Route::get('logout',  [AuthController::class, 'logout'])->name('logout')->middleware('auth');
         Route::get('home',  [DashboardController::class, 'index'])->name('home')->middleware('auth');
-        Route::get('homepage', [HomePageController::class, 'index'])->name('homepage.index')->middleware('auth');
-        Route::post('homepage/update', [HomePageController::class, 'update'])->name('homepage.update')->middleware('auth');
+        Route::resource('homepage', HomePageController::class);
         Route::resource('values', ValuesController::class);
         Route::resource('aboutpage', AboutPageController::class);
-        Route::resource('bra', BraSizeController::class);
+        Route::resource('deliverypage', DeliveriesController::class);
         Route::resource('orders', OrdersController::class);
     }
 );

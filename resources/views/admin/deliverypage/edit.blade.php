@@ -6,7 +6,7 @@
     <nav aria-label="breadcrumb" class="w-100">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Главная</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('admin.aboutpage.index')}}">Список рекомендаций</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('admin.deliverypage.index')}}">Список рекомендаций</a></li>
         </ol>
     </nav>
     @if (count($errors) > 0)
@@ -31,12 +31,12 @@
                     Редактирование
                 </div>
                 <div class="card-body">
-                    <form action="{{route('admin.aboutpage.update', [$about])}}" method="POST" class="form py-4"
+                    <form action="{{route('admin.deliverypage.update', [$delivery])}}" method="POST" class="form py-4"
                           enctype="multipart/form-data">
                         @csrf
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Описание "О нас"</a>
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Описание размера</a>
                             </li>
                         </ul>
                         @method('PATCH')
@@ -46,14 +46,14 @@
                                     <label for="title" class="col-sm-2 col-form-label">
                                         Название</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="title" id="title" value="{{$about->title}}">
+                                        <input type="text" class="form-control" name="title" id="title" value="{{$delivery->title}}">
                                     </div>
                                 </div>
                                 <div class="form-group row border-bottom py-3">
                                     <label for="description" class="col-sm-2 col-form-label">
                                         Описание</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="description" id="description" value="{{$about->description}}">
+                                        <input type="text" class="form-control" name="description" id="description" value="{{$delivery->description}}">
                                     </div>
                                 </div>
                             </div>
