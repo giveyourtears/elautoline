@@ -55,60 +55,32 @@
         </div>
         <div class="container">
             <div class="row" style="display: flex;">
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
-                    <div class="card">
-                        <div class="view view-cascade">
-                            <img src="https://images.unsplash.com/photo-1597404294360-feeeda04612e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="..."/>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="">FORD MUSTANG</a></h5>
-                            <div style="display: flex; justify-content: space-around">
-                                <p class="card-text" ><strong>$2000</strong></p>
-                                <p class="card-text" ><i class="fa fa-car"></i><strong> 40000км</strong></p>
-                                <p class="card-text" ><i class="fa fa-fire"></i><strong> Бензин</strong></p>
-                                <p class="card-text" ><i class="fa fa-calendar"></i><strong> 2016г</strong></p>
+                @foreach($cars as $car)
+                    @foreach($cars_images as $image)
+                        @if($image->carId==$car->id)
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
+                            <div class="card">
+                                <div class="view view-cascade">
+                                        <img
+                                            src="{{assetImage($image->cover)}}"
+                                            class="card-img-top" alt="..."/>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title"><a href="">{{$car->title}}</a></h5>
+                                    <div style="display: flex; justify-content: space-around">
+                                        <p class="card-text"><strong>{{$car->price}}</strong></p>
+                                        <p class="card-text"><i class="fa fa-car"></i><strong> {{$car->mileage}}</strong></p>
+                                        <p class="card-text"><i class="fa fa-fire"></i><strong> {{$car->value}}</strong></p>
+                                        <p class="card-text"><i class="fa fa-calendar"></i><strong> {{$car->year}}</strong></p>
+                                    </div>
+                                    <p class="card-text" style="font-size: 14px">Цена указана без учёта растаможки</p>
+                                    <a href="#" class="btn"><i class="fa fa-shopping-cart"></i> Посмотреть</a>
+                                </div>
                             </div>
-                            <p class="card-text" style="font-size: 14px">Цена указана без учёта растаможки</p>
-                            <a href="#" class="btn"><i class="fa fa-shopping-cart"></i> Посмотреть</a>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
-                    <div class="card">
-                        <div class="view view-cascade">
-                            <img src="https://images.unsplash.com/photo-1494905998402-395d579af36f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="..."/>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="">FORD MUSTANG</a></h5>
-                            <div style="display: flex; justify-content: space-around">
-                                <p class="card-text" ><strong>$2000</strong></p>
-                                <p class="card-text" ><i class="fa fa-car"></i><strong> 40000км</strong></p>
-                                <p class="card-text" ><i class="fa fa-fire"></i><strong> Бензин</strong></p>
-                                <p class="card-text" ><i class="fa fa-calendar"></i><strong> 2016г</strong></p>
-                            </div>
-                            <p class="card-text" style="font-size: 14px">Цена указана без учёта растаможки</p>
-                            <a href="#" class="btn"><i class="fa fa-shopping-cart"></i> Посмотреть</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
-                    <div class="card">
-                        <div class="view view-cascade">
-                            <img src="https://images.unsplash.com/photo-1541443131876-44b03de101c5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="..."/>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="">BMW</a></h5>
-                            <div style="display: flex; justify-content: space-around">
-                                <p class="card-text" ><strong>$2000</strong></p>
-                                <p class="card-text" ><i class="fa fa-car"></i><strong> 40000км</strong></p>
-                                <p class="card-text" ><i class="fa fa-fire"></i><strong> Бензин</strong></p>
-                                <p class="card-text" ><i class="fa fa-calendar"></i><strong> 2016г</strong></p>
-                            </div>
-                            <p class="card-text" style="font-size: 14px">Цена указана без учёта растаможки</p>
-                            <a href="#" class="btn"><i class="fa fa-shopping-cart"></i> Посмотреть</a>
-                        </div>
-                    </div>
-                </div>
+                        @endif
+                    @endforeach
+                @endforeach
             </div>
         </div>
     </section>

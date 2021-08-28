@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Car extends Model
+class CarImage extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'price', 'year', 'mileage', 'description', 'volume', 'type'];
+    protected $fillable = ['carId', 'cover'];
 
     public $timestamps = false;
 }
