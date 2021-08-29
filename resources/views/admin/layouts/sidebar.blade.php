@@ -9,9 +9,24 @@
         <span class="bi bi-journal-bookmark-fill"></span>
         СПРАВОЧНИК "О нас"</a>
     <a href="{{route('admin.deliverypage.index')}}" class="list-group-item list-group-item-action notification-tab" aria-label="Left Align">
-        <span class="bi bi bi-list-check"></span>
+        <span class="bi bi-truck-flatbed"></span>
         СПРАВОЧНИК ДОСТАВОК</a>
     <a href="{{route('admin.cars.index')}}" class="list-group-item list-group-item-action notification-tab" aria-label="Left Align">
-        <span class="bi bi bi-list-check"></span>
+        <span class="bi bi-truck"></span>
         СПИСОК АВТОМОБИЛЕЙ</a>
+    <a href="{{route('admin.ports.index')}}" class="list-group-item list-group-item-action notification-tab" aria-label="Left Align">
+        <span class="bi bi-tsunami"></span>
+        СПИСОК ПОРТОВ</a>
+    <a href="{{route('admin.cities.index')}}" class="list-group-item list-group-item-action notification-tab" aria-label="Left Align">
+        <span class="bi bi-building"></span>
+        СПИСОК ГОРОДОВ</a>
+    <a href="{{route('admin.vehicles.index')}}" class="list-group-item list-group-item-action notification-tab" aria-label="Left Align">
+        <span class="bi bi-circle"></span>
+        СПИСОК ТИПОВ ТРАНСПОРТА</a>
+    <a href="{{route('admin.auction.index')}}" class="list-group-item list-group-item-action notification-tab" aria-label="Left Align">
+        <span class="bi bi-currency-dollar"></span>
+        АУКЦИОННЫЙ СБОР</a>
+    <a href="{{route('admin.online.index')}}" class="list-group-item list-group-item-action notification-tab" aria-label="Left Align">
+        <span class="bi bi-currency-bitcoin"></span>
+        СТАВКА ОНЛАЙН</a>
 </div>

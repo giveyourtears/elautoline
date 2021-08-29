@@ -21,11 +21,18 @@ class HomeController extends ClientControllerBase
         $carousel_images = MainCarousel::all()->all();
         $cars = Car::all();
         $cars_images = CarImage::all();
+        $images = array();
+        foreach ($cars as $car)
+            foreach ($cars_images as $image)
+                if ($car->id == $image->carId) {
+                    array_push($images, $image);
+                    break;
+                }
         return $this->view("client.home.index", [
             'deliveries' => $deliveries,
             'carousels' => $carousel_images,
             'cars' => $cars,
-            'cars_images' => $cars_images
+            'images' => $images
         ]);
     }
 }

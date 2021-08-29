@@ -10,9 +10,10 @@
 @section('content')
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            @foreach($carousels as $carousel)
+                <li data-target="#carouselExampleIndicators" data-slide-to="{{$loop->iteration}}"
+                    class="{{ $loop->first ? 'active' : '' }}"></li>
+            @endforeach
         </ol>
         <div class="carousel-inner">
             @foreach($carousels as $carousel)
@@ -48,38 +49,43 @@
         </div>
     </section>
     <section class="more-services section">
-        <div class="container mb-2" style="display: flex; justify-content: space-around">
-            <h1 class="is-Chosen">Наши покупки</h1>
-            <h1 class="is-Chosen">В наличии</h1>
-            <h1 class="is-Chosen">Лот по BY NOW</h1>
-        </div>
+        {{--        <div class="container mb-2" style="display: flex; justify-content: space-around">--}}
+        {{--            <h1 class="is-Chosen">Наши покупки</h1>--}}
+        {{--            <h1 class="is-Chosen">В наличии</h1>--}}
+        {{--            <h1 class="is-Chosen">Лот по BY NOW</h1>--}}
+        {{--        </div>--}}
         <div class="container">
             <div class="row" style="display: flex;">
                 @foreach($cars as $car)
-                    @foreach($cars_images as $image)
-                        @if($image->carId==$car->id)
-                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
-                            <div class="card">
-                                <div class="view view-cascade">
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
+                        <div class="card">
+                            <div class="view view-cascade">
+                                @foreach($images as $image)
+                                    @if($image->carId==$car->id)
                                         <img
                                             src="{{assetImage($image->cover)}}"
                                             class="card-img-top" alt="..."/>
+                                    @endif
+                                @endforeach
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="">{{$car->title}}</a></h5>
+                                <div style="display: flex; justify-content: space-around">
+                                    <p class="card-text"><strong>{{$car->price}}</strong></p>
+                                    <p class="card-text"><i
+                                            class="fa fa-car"></i><strong> {{$car->mileage}}</strong></p>
+                                    <p class="card-text"><i
+                                            class="fa fa-fire"></i><strong> {{$car->value}}</strong></p>
+                                    <p class="card-text"><i
+                                            class="fa fa-calendar"></i><strong> {{$car->year}}</strong></p>
                                 </div>
-                                <div class="card-body">
-                                    <h5 class="card-title"><a href="">{{$car->title}}</a></h5>
-                                    <div style="display: flex; justify-content: space-around">
-                                        <p class="card-text"><strong>{{$car->price}}</strong></p>
-                                        <p class="card-text"><i class="fa fa-car"></i><strong> {{$car->mileage}}</strong></p>
-                                        <p class="card-text"><i class="fa fa-fire"></i><strong> {{$car->value}}</strong></p>
-                                        <p class="card-text"><i class="fa fa-calendar"></i><strong> {{$car->year}}</strong></p>
-                                    </div>
-                                    <p class="card-text" style="font-size: 14px">Цена указана без учёта растаможки</p>
-                                    <a href="#" class="btn"><i class="fa fa-shopping-cart"></i> Посмотреть</a>
-                                </div>
+                                <p class="card-text" style="font-size: 14px">Цена указана без учёта
+                                    растаможки</p>
+                                <a href="{{route('client.car.index', $car->id)}}" class="btn"><i
+                                        class="fa fa-shopping-cart"></i> Посмотреть</a>
                             </div>
                         </div>
-                        @endif
-                    @endforeach
+                    </div>
                 @endforeach
             </div>
         </div>

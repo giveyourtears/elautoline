@@ -11,13 +11,13 @@ use Illuminate\Support\Facades\DB;
 
 class CarController extends ClientControllerBase
 {
-    public function index(Request $request)
+    public function index($id)
     {
-        $cars = Car::all();
-        $cars_images = CarImage::all();
-        return $this->view("client.home.index", [
-            'cars' => $cars,
-            'cars_images' => $cars_images
+        $car = Car::all()->where('id', $id)->first();
+        $car_images = CarImage::all()->where('carId', $id);
+        return $this->view("client.car.index", [
+            'car' => $car,
+            'car_images' => $car_images
         ]);
     }
 }

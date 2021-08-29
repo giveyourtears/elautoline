@@ -6,6 +6,32 @@ Vue.component('gallery', require('./components/gallery.vue').default);
 
 
 $(function () {
+    let type_auction = $('#type_auction');
+    let type_online = $('#type_online');
+    let type = $('#type');
+    type_auction.on('change', function() {
+        $('#type').val(this.value);
+    });
+    if (window.location.href.split('/').slice(-2).join("/") === "auction/create") {
+        let type_auc = $("#type_auction option:first").val();
+        console.log(type_auc);
+        $("#type_auction").val(type_auc);
+        $('#type').val(type_auc);
+    }
+    type_auction.val(type.val());
+
+    type_online.on('change', function() {
+        $('#type').val(this.value);
+    });
+    if (window.location.href.split('/').slice(-2).join("/") === "online/create") {
+        let type_onl = $("#type_online option:first").val();
+        console.log(type_onl);
+        $("#type_online").val(type_onl);
+        $('#type').val(type_onl);
+    }
+    type_online.val(type.val());
+
+
     ImageUploadConfigurator.init();
     $('#sidebar [data-toggle="tooltip"]').tooltip('disable');
     $('.sidebar-collapse').on('click', function () {

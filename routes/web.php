@@ -1,6 +1,13 @@
 <?php
 
 
+use App\Http\Controllers\Admin\AuctionFeesController;
+use App\Http\Controllers\Admin\CitiesController;
+use App\Http\Controllers\Admin\OnlineFeesController;
+use App\Http\Controllers\Admin\PortsController;
+use App\Http\Controllers\Admin\VehicleTypesController;
+use App\Http\Controllers\Client\CalculatorDeliveryController;
+use App\Http\Controllers\Client\CarController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\AboutController;
@@ -30,6 +37,8 @@ use App\Http\Controllers\Admin\OrdersController;
 Route::get('/', [HomeController::class, 'index'])->name('client.home');
 Route::get('/about', [AboutController::class, 'index'])->name('client.about');
 Route::post('/request/add', [RequestController::class, 'add'])->name('client.request.add');
+Route::get('/delivery', [CalculatorDeliveryController::class, 'index'])->name('client.delivery.add');
+Route::get('/car/{id}/index', [CarController::class, 'index'])->name('client.car.index');
 
 Route::prefix('admin')->name('admin.')->group(
     function () {
@@ -39,7 +48,12 @@ Route::prefix('admin')->name('admin.')->group(
         Route::resource('values', ValuesController::class);
         Route::resource('aboutpage', AboutPageController::class);
         Route::resource('deliverypage', DeliveriesController::class);
+        Route::resource('ports', PortsController::class);
+        Route::resource('vehicles', VehicleTypesController::class);
+        Route::resource('auction', AuctionFeesController::class);
+        Route::resource('online', OnlineFeesController::class);
         Route::resource('cars', CarsPageController::class);
+        Route::resource('cities', CitiesController::class);
         Route::get('images/{id}/index', [CarImagesController::class, 'index'])->name('images.index')->middleware('auth');
         Route::get('images/{id}/create', [CarImagesController::class, 'create'])->name('images.create')->middleware('auth');
         Route::post('images/{id}/store', [CarImagesController::class, 'store'])->name('images.store')->middleware('auth');
