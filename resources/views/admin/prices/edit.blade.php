@@ -6,7 +6,7 @@
     <nav aria-label="breadcrumb" class="w-100">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Главная</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('admin.auction.index')}}">Список аукционных сборов</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('admin.prices.index')}}">Редактирование сбора</a></li>
         </ol>
     </nav>
     @if (count($errors) > 0)
@@ -31,53 +31,82 @@
                     Редактирование
                 </div>
                 <div class="card-body">
-                    <form action="{{route('admin.auction.update', [$fee])}}" method="POST" class="form py-4"
+                    <form action="{{route('admin.prices.update', [$price])}}" method="POST" class="form py-4"
                           enctype="multipart/form-data">
                         @csrf
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Описание аукционного сбора</a>
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                   aria-controls="home" aria-selected="true">Редактирование сбора</a>
                             </li>
                         </ul>
                         @method('PATCH')
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="form-group row border-bottom py-3">
-                                    <label for="price_start" class="col-sm-2 col-form-label">
-                                        Начальная цена</label>
+                                    <label for="port_id" class="col-sm-2 col-form-label">
+                                        Порт</label>
                                     <div class="col-sm-10">
-                                        <input type="number" step="any" class="form-control" name="price_start" id="price_start" value="{{$fee->price_start}}">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <div class="form-group row border-bottom py-3">
-                                    <label for="price_end" class="col-sm-2 col-form-label">
-                                        Конечная цена</label>
-                                    <div class="col-sm-10">
-                                        <input type="number" step="any" class="form-control" name="price_end" id="price_end" value="{{$fee->price_end}}">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <div class="form-group row border-bottom py-3">
-                                    <label for="fee" class="col-sm-2 col-form-label">
-                                        Аукционный сбор</label>
-                                    <div class="col-sm-10">
-                                        <input type="number" step="any" class="form-control" name="fee" id="fee" value="{{$fee->fee}}">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <div class="form-group row border-bottom py-3">
-                                    <label for="type" class="col-sm-2 col-form-label">
-                                        Тип сбора</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" hidden class="form-control" name="type" id="type" value="{{$fee->type}}">
-                                        <select class="form-select" aria-label="Default select example" id="type_online">
-                                            <option value="iaai">IAAI</option>
-                                            <option value="copart">Copart</option>
+                                        <input type="text" hidden class="form-control" name="port_id" id="port_id"
+                                               value="{{$price->port_id}}">
+                                        <select class="form-select" aria-label="Default select example"
+                                                id="port_select">
+                                            @foreach($ports as $port)
+                                                <option value="{{$port->id}}">{{$port->name}}</option>
+                                            @endforeach
                                         </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="form-group row border-bottom py-3">
+                                    <label for="city_id" class="col-sm-2 col-form-label">
+                                        Город</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" hidden class="form-control" name="city_id" id="city_id"
+                                               value="{{$price->city_id}}">
+                                        <select class="form-select" aria-label="Default select example"
+                                                id="city_select">
+                                            @foreach($cities as $city)
+                                                <option value="{{$city->id}}">{{$city->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="form-group row border-bottom py-3">
+                                    <label for="type_id" class="col-sm-2 col-form-label">
+                                        Тип</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" hidden class="form-control" name="type_id" id="type_id"
+                                               value="{{$price->type_id}}">
+                                        <select class="form-select" aria-label="Default select example"
+                                                id="type_select">
+                                            @foreach($types as $type)
+                                                <option value="{{$type->id}}">{{$type->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="form-group row border-bottom py-3">
+                                    <label for="price_city" class="col-sm-2 col-form-label">
+                                        Цена города</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" step="any" class="form-control" name="price_city"
+                                               id="price_city" value="{{$price->price_city}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="form-group row border-bottom py-3">
+                                    <label for="price_type" class="col-sm-2 col-form-label">
+                                        Цена типа</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" step="any" class="form-control" name="price_type"
+                                               id="price_type" value="{{$price->price_type}}">
                                     </div>
                                 </div>
                             </div>

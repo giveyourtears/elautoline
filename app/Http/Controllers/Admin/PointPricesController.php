@@ -26,7 +26,12 @@ class PointPricesController extends Controller
 {
     public function index()
     {
-        $prices = DB::table('point_prices')->paginate(10);
+        $prices = DB::table('point_prices')
+                ->join('ports', 'point_prices.port_id', '=', 'ports.id')
+                ->join('cities', 'point_prices.city_id', '=', 'cities.id')
+                ->join('vehicle_types', 'point_prices.type_id', '=', 'vehicle_types.id')
+                ->select('point_prices.*', 'ports.name as portName', 'cities.name as cityName', 'vehicle_types.name as typeName')
+                ->paginate(10);
         return view('admin.prices.index', [
             'prices' => $prices
         ]);
@@ -55,7 +60,13 @@ class PointPricesController extends Controller
 
     public function edit($id)
     {
-        return view('admin.prices.edit')->with('price', PointPrices::where('id', $id)->first());
+        $cities = Cities::all();
+        $ports = Ports::all();
+        $types = VehicleTypes::all();
+        return view('admin.prices.edit', [
+            'cities' => $cities,
+            'ports' => $ports,
+            'types' => $types])->with('price', PointPrices::where('id', $id)->first());
     }
 
     public function update(PointPricesPageRequest $request, $id)

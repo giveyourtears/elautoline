@@ -51,9 +51,9 @@
                             @foreach($prices as $price)
                                 <tr>
                                     <th scope="row">{{$loop->iteration}}</th>
-                                    <td>{{$price->port_id}}</td>
-                                    <td>{{$price->city_id}}</td>
-                                    <td>{{$price->type_id}}</td>
+                                    <td>{{$price->portName}}</td>
+                                    <td>{{$price->cityName}}</td>
+                                    <td>{{$price->typeName}}</td>
                                     <td>{{$price->price_type}}</td>
                                     <td>{{$price->price_city}}</td>
                                     <td>
