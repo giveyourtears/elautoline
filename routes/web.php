@@ -4,6 +4,7 @@
 use App\Http\Controllers\Admin\AuctionFeesController;
 use App\Http\Controllers\Admin\CitiesController;
 use App\Http\Controllers\Admin\OnlineFeesController;
+use App\Http\Controllers\Admin\PointPricesController;
 use App\Http\Controllers\Admin\PortsController;
 use App\Http\Controllers\Admin\VehicleTypesController;
 use App\Http\Controllers\Client\CalculatorDeliveryController;
@@ -51,6 +52,7 @@ Route::prefix('admin')->name('admin.')->group(
         Route::resource('ports', PortsController::class);
         Route::resource('vehicles', VehicleTypesController::class);
         Route::resource('auction', AuctionFeesController::class);
+        Route::resource('prices',PointPricesController::class);
         Route::resource('online', OnlineFeesController::class);
         Route::resource('cars', CarsPageController::class);
         Route::resource('cities', CitiesController::class);

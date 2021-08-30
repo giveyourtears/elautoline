@@ -29,4 +29,7 @@
     <a href="{{route('admin.online.index')}}" class="list-group-item list-group-item-action notification-tab" aria-label="Left Align">
         <span class="bi bi-currency-bitcoin"></span>
         СТАВКА ОНЛАЙН</a>
+    <a href="{{route('admin.prices.index')}}" class="list-group-item list-group-item-action notification-tab" aria-label="Left Align">
+        <span class="bi bi-currency-dollar"></span>
+        Сборы</a>
 </div>

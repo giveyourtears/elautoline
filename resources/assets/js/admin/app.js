@@ -31,6 +31,45 @@ $(function () {
     }
     type_online.val(type.val());
 
+    let port_select = $('#port_select');
+    let city_select = $('#city_select');
+    let type_select = $('#type_select');
+    let port_id = $('#port_id');
+    let city_id = $('#city_id');
+    let type_id = $('#type_id');
+    port_select.on('change', function() {
+        $('#port_id').val(this.value);
+    });
+    if (window.location.href.split('/').slice(-2).join("/") === "prices/create") {
+        let type_port = $("#port_select option:first").val();
+        console.log(type_port);
+        port_select.val(type_port);
+        port_id.val(type_port);
+    }
+    port_id.val(port_id.val());
+
+    city_select.on('change', function() {
+        $('#city_id').val(this.value);
+    });
+    if (window.location.href.split('/').slice(-2).join("/") === "prices/create") {
+        let type_city = $("#city_select option:first").val();
+        console.log(type_city);
+        port_select.val(type_city);
+        city_id.val(type_city);
+    }
+    city_id.val(city_id.val());
+
+    type_select.on('change', function() {
+        $('#type_id').val(this.value);
+    });
+    if (window.location.href.split('/').slice(-2).join("/") === "prices/create") {
+        let type_type = $("#type_select option:first").val();
+        console.log(type_type);
+        type_select.val(type_type);
+        type_id.val(type_type);
+    }
+    type_id.val(type_id.val());
+
 
     ImageUploadConfigurator.init();
     $('#sidebar [data-toggle="tooltip"]').tooltip('disable');
