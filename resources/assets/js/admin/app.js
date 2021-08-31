@@ -47,6 +47,7 @@ $(function () {
         port_id.val(type_port);
     }
     port_id.val(port_id.val());
+    $(`#port_select option[value=${port_id.val()}]`).attr('selected','selected');
 
     city_select.on('change', function() {
         $('#city_id').val(this.value);
@@ -58,6 +59,7 @@ $(function () {
         city_id.val(type_city);
     }
     city_id.val(city_id.val());
+    $(`#city_select option[value=${city_id.val()}]`).attr('selected','selected');
 
     type_select.on('change', function() {
         $('#type_id').val(this.value);
@@ -69,6 +71,7 @@ $(function () {
         type_id.val(type_type);
     }
     type_id.val(type_id.val());
+    $(`#type_select option[value=${type_id.val()}]`).attr('selected','selected');
 
 
     ImageUploadConfigurator.init();
