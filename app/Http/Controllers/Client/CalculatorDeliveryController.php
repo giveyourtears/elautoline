@@ -25,4 +25,29 @@ class CalculatorDeliveryController extends ClientControllerBase
             'types' => $types
         ]);
     }
+
+    public function resultAuction(Request $request)
+    {
+        $online = DB::table('online_fees')
+            ->where('price_start', '<', $request->price)
+            ->where('price_end', '>', $request->price)
+            ->first();
+        $auction = DB::table('auction_fees')
+            ->where('price_start', '<', $request->price)
+            ->where('price_end', '>', $request->price)
+            ->first();
+
+        return response()->json(59 + $online->fee + $auction->fee);
+    }
+
+    public function resultDelivery(Request $request)
+    {
+        $delivery = DB::table('point_prices')
+            ->where('port_id', '=', $request->port_id)
+            ->where('type_id', '=', $request->type_id)
+            ->where('city_id', '=', $request->city_id)
+            ->first();
+
+        return response()->json(800 + $delivery->price_type + $delivery->price_city);
+    }
 }
