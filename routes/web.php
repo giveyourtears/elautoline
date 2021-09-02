@@ -35,13 +35,14 @@ use App\Http\Controllers\Admin\OrdersController;
 |
 */
 
+Route::post('/', [HomeController::class, 'index'])->name('client.home');
 Route::get('/', [HomeController::class, 'index'])->name('client.home');
 Route::get('/about', [AboutController::class, 'index'])->name('client.about');
 Route::post('/request/add', [RequestController::class, 'add'])->name('client.request.add');
 Route::get('/delivery', [CalculatorDeliveryController::class, 'index'])->name('client.delivery.add');
 Route::get('/car/{id}/index', [CarController::class, 'index'])->name('client.car.index');
-Route::post('/calc/resultAuction', [CalculatorDeliveryController::class, 'resultAuction'])->name('client.calculatordelivery.resultAuction');
-Route::post('/calc/resultOnline', [CalculatorDeliveryController::class, 'resultOnline'])->name('client.calculatordelivery.resultOnline');
+Route::post('/calc/resultAuction', [CalculatorDeliveryController::class, 'resultAuction'])->name('client.calc.resultAuction');
+Route::post('/calc/resultDelivery', [CalculatorDeliveryController::class, 'resultDelivery'])->name('client.calc.resultDelivery');
 
 Route::prefix('admin')->name('admin.')->group(
     function () {

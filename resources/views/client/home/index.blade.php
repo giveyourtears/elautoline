@@ -49,11 +49,23 @@
         </div>
     </section>
     <section class="more-services section">
-                <div class="container mb-2" style="display: flex; justify-content: space-around">
-                    <h1 class="is-Chosen">Наши покупки</h1>
-                    <h1 class="is-Chosen">В наличии</h1>
-                    <h1 class="is-Chosen">Лот по BY NOW</h1>
-                </div>
+        <div class="container mb-2" style="display: flex; justify-content: space-around">
+            <form method="POST" id="our" action="{{route('client.home')}}">
+                @csrf
+                <h1 class="{{ $type == 'our' ? 'is-Chosen' : '' }} type">Наши покупки</h1>
+                <input type="hidden" name="type" value="our"/>
+            </form>
+            <form method="POST" id="stock" action="{{route('client.home')}}">
+                @csrf
+                <h1 class="{{ $type == 'stock' ? 'is-Chosen' : '' }} type">В наличии</h1>
+                <input type="hidden" name="type" value="stock"/>
+            </form>
+            <form method="POST" id="now" action="{{route('client.home')}}">
+                @csrf
+                <h1 class="{{ $type == 'now' ? 'is-Chosen' : '' }} type">Лот по BY NOW</h1>
+                <input type="hidden" name="type" value="now"/>
+            </form>
+        </div>
         <div class="container">
             <div class="row" style="display: flex;">
                 @foreach($cars as $car)

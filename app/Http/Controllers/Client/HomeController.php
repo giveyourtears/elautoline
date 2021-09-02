@@ -12,14 +12,18 @@ use App\Models\ReferenceGuide;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
+use phpDocumentor\Reflection\Type;
+use function GuzzleHttp\Promise\all;
 
 class HomeController extends ClientControllerBase
 {
     public function index(Request $request)
     {
-        $deliveries = Delivery::all()->all();
-        $carousel_images = MainCarousel::all()->all();
-        $cars = Car::all();
+        $type = $request->get('type');
+        if ($type == null) $type = 'our';
+        $deliveries = Delivery::all();
+        $carousel_images = MainCarousel::all();
+        $cars = Car::all()->where('type', '=', $type);
         $cars_images = CarImage::all();
         $images = array();
         foreach ($cars as $car)
@@ -32,7 +36,8 @@ class HomeController extends ClientControllerBase
             'deliveries' => $deliveries,
             'carousels' => $carousel_images,
             'cars' => $cars,
-            'images' => $images
+            'images' => $images,
+            'type' => $type
         ]);
     }
 }

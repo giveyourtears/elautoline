@@ -29,12 +29,14 @@ class CalculatorDeliveryController extends ClientControllerBase
     public function resultAuction(Request $request)
     {
         $online = DB::table('online_fees')
-            ->where('price_start', '<', $request->price)
-            ->where('price_end', '>', $request->price)
+            ->where('price_start', '<', $request->get('price'))
+            ->where('price_end', '>', $request->get('price'))
+            ->where('type', '=', $request->get('auctions'))
             ->first();
         $auction = DB::table('auction_fees')
-            ->where('price_start', '<', $request->price)
-            ->where('price_end', '>', $request->price)
+            ->where('price_start', '<', $request->get('price'))
+            ->where('price_end', '>', $request->get('price'))
+            ->where('type', '=', $request->get('auctions'))
             ->first();
 
         return response()->json(59 + $online->fee + $auction->fee);
@@ -43,9 +45,9 @@ class CalculatorDeliveryController extends ClientControllerBase
     public function resultDelivery(Request $request)
     {
         $delivery = DB::table('point_prices')
-            ->where('port_id', '=', $request->port_id)
-            ->where('type_id', '=', $request->type_id)
-            ->where('city_id', '=', $request->city_id)
+            ->where('port_id', '=', $request->get('port_id'))
+            ->where('type_id', '=', $request->get('type_id'))
+            ->where('city_id', '=', $request->get('city_id'))
             ->first();
 
         return response()->json(800 + $delivery->price_type + $delivery->price_city);

@@ -59,7 +59,13 @@
                                     <td>{{$car->mileage}}</td>
                                     <td>{{$car->description}}</td>
                                     <td>{{$car->volume}}</td>
-                                    <td>{{$car->type}}</td>
+                                    @if ($car->type == 'our')
+                                        <td>Наши покупки</td>
+                                    @elseif ($car->type == 'stock')
+                                        <td>В наличии</td>
+                                    @else
+                                        <td>Лот по BY NOW</td>
+                                    @endif
                                     <td>
                                         <div class="btn-group" role="group">
                                             <a href="/admin/cars/{{$car->id}}/edit" class="btn btn-success mr-1">

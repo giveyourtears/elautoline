@@ -83,11 +83,18 @@
                                         <input type="text" class="form-control" name="volume" id="volume">
                                     </div>
                                 </div>
-                                <div class="form-group row border-bottom py-3">
-                                    <label for="type" class="col-sm-2 col-form-label">
-                                        Тип</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="type" id="type">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <div class="form-group row border-bottom py-3">
+                                        <label for="type" class="col-sm-2 col-form-label">
+                                            Тип</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" hidden class="form-control" name="type" id="type">
+                                            <select class="form-select" aria-label="Default select example" id="type_car">
+                                                <option value="our">Наши покупки</option>
+                                                <option value="stock">В наличии</option>
+                                                <option value="now">Лот по BY NOW</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

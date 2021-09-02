@@ -42,8 +42,8 @@
                                 <th scope="col">Порт</th>
                                 <th scope="col">Город</th>
                                 <th scope="col">Тип транспорта</th>
-                                <th scope="col">Цена транспорта</th>
-                                <th scope="col">Цена города</th>
+                                <th scope="col">Цена по морю</th>
+                                <th scope="col">Цена по суши</th>
                                 <th scope="col">Действия</th>
                             </tr>
                             </thead>

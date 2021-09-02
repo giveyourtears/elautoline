@@ -8,6 +8,7 @@ Vue.component('gallery', require('./components/gallery.vue').default);
 $(function () {
     let type_auction = $('#type_auction');
     let type_online = $('#type_online');
+    let type_car = $('#type_car');
     let type = $('#type');
     type_auction.on('change', function() {
         $('#type').val(this.value);
@@ -19,6 +20,17 @@ $(function () {
         $('#type').val(type_auc);
     }
     type_auction.val(type.val());
+
+    type_car.on('change', function() {
+        $('#type').val(this.value);
+    });
+    if (window.location.href.split('/').slice(-2).join("/") === "cars/create") {
+        let type_auc = $("#type_car option:first").val();
+        console.log(type_auc);
+        $("#type_car").val(type_auc);
+        $('#type').val(type_auc);
+    }
+    type_car.val(type.val());
 
     type_online.on('change', function() {
         $('#type').val(this.value);
