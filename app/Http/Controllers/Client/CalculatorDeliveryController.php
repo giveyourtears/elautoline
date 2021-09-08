@@ -29,13 +29,13 @@ class CalculatorDeliveryController extends ClientControllerBase
     public function resultAuction(Request $request)
     {
         $online = DB::table('online_fees')
-            ->where('price_start', '<', $request->get('price'))
+            ->where('price_start', '<=', $request->get('price'))
             ->where('price_end', '>', $request->get('price'))
             ->where('type', '=', $request->get('auctions'))
             ->first();
 
         $auction = DB::table('auction_fees')
-            ->where('price_start', '<', $request->get('price'))
+            ->where('price_start', '<=', $request->get('price'))
             ->where('price_end', '>', $request->get('price'))
             ->where('type', '=', $request->get('auctions'))
             ->first();

@@ -18,11 +18,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 290px;
     flex-direction: column;
     background-color: #f2f5f4;
     box-shadow: 0px 0 30px rgba(88, 113, 109, 0.08);
 
-    h3 {
+    h2 {
         font-size: 22px;
         font-weight: 700;
         border-bottom: 1px solid #eee;
