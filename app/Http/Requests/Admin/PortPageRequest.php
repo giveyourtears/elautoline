@@ -19,7 +19,7 @@ class PortPageRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name' => 'Название'
+            'name' => 'Название',
         ];
     }
 

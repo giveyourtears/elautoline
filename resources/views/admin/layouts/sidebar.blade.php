@@ -16,10 +16,13 @@
         СПИСОК АВТОМОБИЛЕЙ</a>
     <a href="{{route('admin.ports.index')}}" class="list-group-item list-group-item-action notification-tab" aria-label="Left Align">
         <span class="bi bi-tsunami"></span>
-        СПИСОК ПОРТОВ</a>
+        СПИСОК ГОРОДОВ ОТПРАВЛЕНИЯ</a>
     <a href="{{route('admin.cities.index')}}" class="list-group-item list-group-item-action notification-tab" aria-label="Left Align">
         <span class="bi bi-building"></span>
-        СПИСОК ГОРОДОВ</a>
+        СПИСОК ГОРОДОВ ПРИБЫТИЯ</a>
+    <a href="{{route('admin.port_froms.index')}}" class="list-group-item list-group-item-action notification-tab" aria-label="Left Align">
+        <span class="bi bi-building"></span>
+        ПОРТЫ</a>
     <a href="{{route('admin.vehicles.index')}}" class="list-group-item list-group-item-action notification-tab" aria-label="Left Align">
         <span class="bi bi-circle"></span>
         СПИСОК ТИПОВ ТРАНСПОРТА</a>
