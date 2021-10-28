@@ -13,6 +13,7 @@ use App\Http\Requests\Admin\PortPageRequest;
 use App\Models\Delivery;
 use App\Models\PortFroms;
 use App\Models\ReferenceGuide;
+use App\Models\VehicleTypes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +22,10 @@ class PortFromsController extends Controller
 {
     public function index()
     {
-        $ports = DB::table('port_froms')->paginate(10);
+        $ports = DB::table('port_froms')
+            ->join('vehicle_types', 'port_froms.type', '=', 'vehicle_types.id')
+            ->select('port_froms.*', 'vehicle_types.name as typeName')
+            ->paginate(10);
         return view('admin.port_froms.index', [
             'ports' => $ports
         ]);
@@ -38,12 +42,18 @@ class PortFromsController extends Controller
 
     public function create()
     {
-        return view('admin.port_froms.create');
+        $types = VehicleTypes::all();
+        return view('admin.port_froms.create', [
+            'types' => $types
+        ]);
     }
 
     public function edit($id)
     {
-        return view('admin.port_froms.edit')->with('port', PortFroms::where('id', $id)->first());
+        $types = VehicleTypes::all();
+        return view('admin.port_froms.edit',[
+            'types' => $types
+        ])->with('port', PortFroms::where('id', $id)->first());
     }
 
     public function update(PortFromsPageRequest $request, $id)

@@ -22,8 +22,7 @@ class PointPricesPageRequest extends FormRequest
             'port_id' => 'Порт',
             'type_id' => 'Тип',
             'city_id' => 'Город',
-            'price_city' => 'Цена город',
-            'price_type' => 'Цена тип машины'
+            'price_city' => 'Цена по суше'
         ];
     }
 
@@ -38,9 +37,8 @@ class PointPricesPageRequest extends FormRequest
             'id' => "",
             'port_id' => "required|numeric",
             'type_id' => "required|numeric",
-            'city_id' => "required|numeric",
-            'price_city' => "required|numeric",
-            'price_type' => "required|numeric"
+            'city_id' => "required|string",
+            'price_city' => "required|numeric"
         ];
     }
 }

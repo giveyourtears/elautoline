@@ -85,6 +85,19 @@ $(function () {
     type_id.val(type_id.val());
     $(`#type_select option[value=${type_id.val()}]`).attr('selected','selected');
 
+    let type2_select = $('#type2_select');
+    let type2 = $('#type2');
+    type2_select.on('change', function() {
+        $('#type2').val(this.value);
+    });
+    if (window.location.href.split('/').slice(-2).join("/") === "port_froms/create") {
+        let type_type2 = $("#type2_select option:first").val();
+        console.log(type_type2);
+        type2_select.val(type_type2);
+        type2.val(type_type2);
+    }
+    type2.val(type2.val());
+    $(`#type2_select option[value=${type2.val()}]`).attr('selected','selected');
 
     ImageUploadConfigurator.init();
     $('#sidebar [data-toggle="tooltip"]').tooltip('disable');

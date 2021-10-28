@@ -39,10 +39,9 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Порт</th>
                                 <th scope="col">Город</th>
+                                <th scope="col">Порт</th>
                                 <th scope="col">Тип транспорта</th>
-                                <th scope="col">Цена по морю</th>
                                 <th scope="col">Цена по суши</th>
                                 <th scope="col">Действия</th>
                             </tr>
@@ -54,7 +53,6 @@
                                     <td>{{$price->portName}}</td>
                                     <td>{{$price->cityName}}</td>
                                     <td>{{$price->typeName}}</td>
-                                    <td>{{$price->price_type}}</td>
                                     <td>{{$price->price_city}}</td>
                                     <td>
                                         <div class="btn-group" role="group">

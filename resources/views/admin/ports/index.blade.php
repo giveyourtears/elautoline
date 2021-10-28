@@ -5,7 +5,7 @@
     <nav aria-label="breadcrumb" class="w-100">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('admin.ports.index')}}">Порты</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('admin.ports.index')}}">Города отправления</a></li>
         </ol>
     </nav>
     @if (count($errors) > 0)
@@ -27,7 +27,7 @@
             <div class="card">
                 <div class="card-header">
                     <span class="bi bi-list-ul"></span>
-                    Список портов
+                    Список городов отправления
                 </div>
                 <div class="card-body">
                     <a href="{{route('admin.ports.create')}}" class="btn btn-primary">

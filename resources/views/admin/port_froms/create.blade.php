@@ -103,6 +103,20 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="form-group row border-bottom py-3">
+                                    <label for="type" class="col-sm-2 col-form-label">
+                                        Тип</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" hidden class="form-control" name="type" id="type2">
+                                        <select class="form-select" aria-label="Default select example" id="type2_select">
+                                            @foreach($types as $type)
+                                                <option value="{{$type->id}}">{{$type->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <button class="btn btn-primary" type="submit">Сохранить</button>
                     </form>

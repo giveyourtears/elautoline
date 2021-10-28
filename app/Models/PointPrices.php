@@ -7,7 +7,7 @@ class PointPrices extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['port_id', 'type_id', 'city_id', 'price_type', 'price_city'];
+    protected $fillable = ['port_id', 'type_id', 'city_id', 'price_city'];
 
     public $timestamps = false;
 }

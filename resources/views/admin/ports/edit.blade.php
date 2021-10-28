@@ -6,7 +6,7 @@
     <nav aria-label="breadcrumb" class="w-100">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Главная</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('admin.ports.index')}}">Список портов</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('admin.ports.index')}}">Список городов отправления</a></li>
         </ol>
     </nav>
     @if (count($errors) > 0)

@@ -26,6 +26,7 @@ class PortFromsPageRequest extends FormRequest
             'bremer' => 'Цена Бремерхафен',
             'poti' => 'Цена Поти',
             'price_water' => 'Цена по воде',
+            'type' => 'Тип транспорта',
         ];
     }
 
@@ -45,6 +46,7 @@ class PortFromsPageRequest extends FormRequest
             'bremer' => "required|numeric",
             'poti' => "required|numeric",
             'price_water' => "required|numeric",
+            'type' => "required|numeric",
         ];
     }
 }

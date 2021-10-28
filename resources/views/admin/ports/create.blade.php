@@ -6,7 +6,7 @@
     <nav aria-label="breadcrumb" class="w-100">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Главная</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('admin.ports.index')}}">Список портов</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('admin.ports.index')}}">Список городов отправления</a></li>
         </ol>
     </nav>
     @if (count($errors) > 0)
@@ -36,7 +36,7 @@
                         @csrf
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Описание порта</a>
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Описание города</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">

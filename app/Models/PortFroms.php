@@ -7,7 +7,7 @@ class PortFroms extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'claipeda', 'minsk', 'odessa', 'bremer', 'poti', 'price_water'];
+    protected $fillable = ['name', 'claipeda', 'minsk', 'odessa', 'bremer', 'poti', 'price_water', 'type'];
 
 
     public $timestamps = false;

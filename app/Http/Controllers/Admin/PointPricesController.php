@@ -15,6 +15,7 @@ use App\Models\AuctionFees;
 use App\Models\Cities;
 use App\Models\Delivery;
 use App\Models\PointPrices;
+use App\Models\PortFroms;
 use App\Models\Ports;
 use App\Models\ReferenceGuide;
 use App\Models\VehicleTypes;
@@ -28,9 +29,9 @@ class PointPricesController extends Controller
     {
         $prices = DB::table('point_prices')
                 ->join('ports', 'point_prices.port_id', '=', 'ports.id')
-                ->join('cities', 'point_prices.city_id', '=', 'cities.id')
+                ->join('port_froms', 'point_prices.city_id', '=', 'port_froms.id')
                 ->join('vehicle_types', 'point_prices.type_id', '=', 'vehicle_types.id')
-                ->select('point_prices.*', 'ports.name as portName', 'cities.name as cityName', 'vehicle_types.name as typeName')
+                ->select('point_prices.*', 'ports.name as portName', 'port_froms.name as cityName', 'vehicle_types.name as typeName')
                 ->paginate(10);
         return view('admin.prices.index', [
             'prices' => $prices
@@ -40,6 +41,9 @@ class PointPricesController extends Controller
     public function store(PointPricesPageRequest $request)
     {
         $validated = $request->validated();
+        $port = PortFroms::where([['name', '=', $request->city_id],['type', '=', $request->type_id]])->first();
+        dd($port->getAttributes()['name']);
+
         $price = new PointPrices($validated);
         $price->save();
 
@@ -48,7 +52,10 @@ class PointPricesController extends Controller
 
     public function create()
     {
-        $cities = Cities::all();
+        $cities = $users = DB::table('port_froms')
+            ->select('name')
+            ->groupBy('name')
+            ->get();
         $ports = Ports::all();
         $types = VehicleTypes::all();
         return view('admin.prices.create', [
@@ -60,7 +67,7 @@ class PointPricesController extends Controller
 
     public function edit($id)
     {
-        $cities = Cities::all();
+        $cities = PortFroms::all();
         $ports = Ports::all();
         $types = VehicleTypes::all();
         return view('admin.prices.edit', [

@@ -46,6 +46,7 @@
                                 <th scope="col">Бремерхафен</th>
                                 <th scope="col">Поти</th>
                                 <th scope="col">Фикс цена</th>
+                                <th scope="col">Тип</th>
                                 <th scope="col">Действия</th>
                             </tr>
                             </thead>
@@ -60,6 +61,7 @@
                                     <td>{{$port->bremer}}</td>
                                     <td>{{$port->poti}}</td>
                                     <td>{{$port->price_water}}</td>
+                                    <td>{{$port->typeName}}</td>
                                     <td>
                                         <div class="btn-group" role="group">
                                             <a href="/admin/port_froms/{{$port->id}}/edit" class="btn btn-success mr-1">
