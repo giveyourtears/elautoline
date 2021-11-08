@@ -59,9 +59,24 @@ class CalculatorDeliveryController extends ClientControllerBase
         $delivery = DB::table('point_prices')
             ->where('port_id', '=', $request->get('port_id'))
             ->where('type_id', '=', $request->get('type_id'))
-            ->where('city_id', '=', $request->get('city_id'))
+            ->where('city_at_id', '=', $request->get('city_id'))
             ->first();
 
-        return response()->json(800 + $delivery->price_type + $delivery->price_city);
+        return response()->json(800 + $delivery->price_city);
+    }
+
+    public function sendToTelegram(Request $request)
+    {
+        $telegramBot = "2144252590:AAFtcrxZh-o-ux7PbxV2Z9Xc8Pw3B25poKI";
+        $telegramChatId = 257310192;
+        $msg = "Вам оставили заявку. Номер {$request->get("number")}";
+        $this->telegramSend($telegramBot, $telegramChatId, $msg);
+    }
+
+    public function telegramSend($telegramBot, $telegramChatId, $msg) {
+        $url='https://api.telegram.org/bot'.$telegramBot.'/sendMessage';$data=array('chat_id'=>$telegramChatId,'text'=>$msg);
+        $options=array('http'=>array('method'=>'POST','header'=>"Content-Type:application/x-www-form-urlencoded\r\n",'content'=>http_build_query($data),),);
+        $context=stream_context_create($options);
+        $result=file_get_contents($url,false,$context);
     }
 }

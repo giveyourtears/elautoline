@@ -428,12 +428,15 @@ body {
             border: 1px solid #454035;
 
             input {
-                &[type="email"] {
+                &[type="text"] {
                     border: 0;
                     padding: 4px;
                     width: calc(100% - 110px);
                     background: #28251f;
                     color: white;
+                    &:hover {
+                        background: #d3af71;
+                    }
                 }
 
                 &[type="submit"] {

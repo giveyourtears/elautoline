@@ -52,6 +52,27 @@ $(".type").click(function(){
     $(this).closest('form').submit();
 });
 
+$("#order-form").submit(function (event) {
+    event.preventDefault();
+    let form = $('#order-form')[0]
+    let data = new FormData(form);
+    $.ajax({
+        type: "POST",
+        url: '/calc/sendToTelegram',
+        data: data,
+        processData: false,
+        contentType: false,
+        cache: false,
+        timeout: 6000,
+        success: function (response) {
+
+        },
+        error: function (response) {
+
+        }
+    })
+})
+
 $("#auction-form").submit(function (event) {
     event.preventDefault();
     let form = $('#auction-form')[0];
@@ -75,6 +96,9 @@ $("#auction-form").submit(function (event) {
         }
     });
 });
+
+
+
 $("#online-form").submit(function (event) {
     event.preventDefault();
     let form = $('#online-form')[0];

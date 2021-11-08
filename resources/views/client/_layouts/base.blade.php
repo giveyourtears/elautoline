@@ -46,6 +46,8 @@
                 <a href="https://vk.com/elautoline" class="vk"><i class="fab fa-vk"></i></a>
                 <a href="https://www.instagram.com/elautoline/" class="instagram"><i class="fa fa-instagram"></i></a>
                 <a href="https://t.me/elautoline" class="telegram"><i class="fa fa-telegram"></i></a>
+                <a href="https://wa.me/491623163574" class="whatsapp"><i class="fa fa-whatsapp"></i></a>
+                <a href="viber://chat?number=%2B491623163574" class="viber"><i class="fab fa-viber"></i></a>
             </div>
         </div>
     </section>
@@ -56,7 +58,7 @@
             </div>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="">Главная</a></li>
+                    <li><a class="nav-link scrollto active" href="/">Главная</a></li>
                     <li><a class="nav-link scrollto" href="/about">О нас</a></li>
                     <li><a class="nav-link scrollto" href="/delivery">Доставка</a></li>
                     <li><a class="nav-link scrollto" href="/find">Поиск авто</a></li>
@@ -94,6 +96,12 @@
                                 <a href="https://t.me/elautoline">
                                     <i class="fa fa-telegram"></i>
                                 </a>
+                                <a href="https://wa.me/491623163574">
+                                    <i class="fa fa-whatsapp"></i>
+                                </a>
+                                <a href="viber://chat?number=%2B491623163574">
+                                    <i class="fab fa-viber"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -111,13 +119,20 @@
                             <li>
                                 <i class="bx bx-chevron-right"></i> <a href="/delivery">Калькулятор доставки</a>
                             </li>
+                            <li>
+                                <i class="bx bx-chevron-right"></i> <a href="/find">Поиск авто</a>
+                            </li>
+                            <li>
+                                <i class="bx bx-chevron-right"></i> <a href="/conditions">Условия</a>
+                            </li>
                         </ul>
                     </div>
 
                     <div class="col-lg-4 col-md-6 footer-newsletter">
-                        <h4>Подписаться на обновления</h4>
-                        <form action="" method="post">
-                            <input type="email" name="email"/>
+                        <h4>Оставить заявку</h4>
+                        <form class="order-form" id="order-form" method="POST">
+                            @csrf
+                            <input type="text" id="number" name="number"/>
                             <input type="submit" value="Подписаться!"/>
                         </form>
                     </div>

@@ -42,6 +42,7 @@ Route::post('/', [HomeController::class, 'index'])->name('client.home');
 Route::get('/', [HomeController::class, 'index'])->name('client.home');
 Route::get('/find', [FindController ::class, 'index'])->name('client.find');
 Route::get('/conditions', [ConditionController ::class, 'index'])->name('client.conditions');
+Route::post('/calc/sendToTelegram', [CalculatorDeliveryController::class, 'sendToTelegram']);
 Route::get('/about', [AboutController::class, 'index'])->name('client.about');
 Route::post('/request/add', [RequestController::class, 'add'])->name('client.request.add');
 Route::get('/delivery', [CalculatorDeliveryController::class, 'index'])->name('client.delivery.add');
