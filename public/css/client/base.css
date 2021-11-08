@@ -361,14 +361,10 @@ body {
   border: 1px solid #454035;
 }
 #footer .footer-top .footer-newsletter form input[type=text] {
-  border: 0;
-  padding: 4px;
+  border: none;
   width: calc(100% - 110px);
   background: #28251f;
   color: white;
-}
-#footer .footer-top .footer-newsletter form input[type=text]:hover {
-  background: #d3af71;
 }
 #footer .footer-top .footer-newsletter form input[type=submit] {
   position: absolute;
@@ -761,14 +757,10 @@ body {
   border: 1px solid #454035;
 }
 #footer .footer-top .footer-newsletter form input[type=text] {
-  border: 0;
-  padding: 4px;
+  border: none;
   width: calc(100% - 110px);
   background: #28251f;
   color: white;
-}
-#footer .footer-top .footer-newsletter form input[type=text]:hover {
-  background: #d3af71;
 }
 #footer .footer-top .footer-newsletter form input[type=submit] {
   position: absolute;

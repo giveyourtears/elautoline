@@ -132,7 +132,7 @@
                         <h4>Оставить заявку</h4>
                         <form class="order-form" id="order-form" method="POST">
                             @csrf
-                            <input type="text" id="number" name="number"/>
+                            <input type="text" id="number" name="number" placeholder="Введите номер телефона"/>
                             <input type="submit" value="Подписаться!"/>
                         </form>
                     </div>

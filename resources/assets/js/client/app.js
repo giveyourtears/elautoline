@@ -65,7 +65,7 @@ $("#order-form").submit(function (event) {
         cache: false,
         timeout: 6000,
         success: function (response) {
-
+            $("#number").css("border", "#DCDCDC solid 1px");
         },
         error: function (response) {
 

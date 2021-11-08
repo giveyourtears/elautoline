@@ -69,8 +69,10 @@ class CalculatorDeliveryController extends ClientControllerBase
     {
         $telegramBot = "2144252590:AAFtcrxZh-o-ux7PbxV2Z9Xc8Pw3B25poKI";
         $telegramChatId = 257310192;
+        $telegramChatId2 = 1790450089;
         $msg = "Вам оставили заявку. Номер {$request->get("number")}";
         $this->telegramSend($telegramBot, $telegramChatId, $msg);
+        $this->telegramSend($telegramBot, $telegramChatId2, $msg);
     }
 
     public function telegramSend($telegramBot, $telegramChatId, $msg) {

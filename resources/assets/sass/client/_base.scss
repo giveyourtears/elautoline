@@ -429,14 +429,10 @@ body {
 
             input {
                 &[type="text"] {
-                    border: 0;
-                    padding: 4px;
+                    border: none;
                     width: calc(100% - 110px);
                     background: #28251f;
                     color: white;
-                    &:hover {
-                        background: #d3af71;
-                    }
                 }
 
                 &[type="submit"] {

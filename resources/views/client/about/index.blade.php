@@ -25,34 +25,11 @@
                     <div class="icon-boxes d-flex flex-column justify-content-center">
                         <div class="row">
                             @for($i=1; $i < count($abouts); $i++)
-                            <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                                <i class="fa fa-car"></i>
-                                <h4>{{$abouts[$i]->title}}</h4>
-                                <p>{{$abouts[$i]->description}}</p>
-                            </div>
-{{--                            <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">--}}
-{{--                                <i class="fa fa-car"></i>--}}
-{{--                                <h4>Поможем с выбором--}}
-{{--                                </h4>--}}
-{{--                                <p>Приобрести машину в наше время легко, а вот выбрать именно то транспортное средство,--}}
-{{--                                    которое удовлетворит всем пожеланиям, требованиям и запросам – невероятно--}}
-{{--                                    сложно.<br/> Мы поможем и подберем для вас лучший вариант!</p>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">--}}
-{{--                                <i class="fa fa-get-pocket"></i>--}}
-{{--                                <h4>Торги на всех аукционах--}}
-{{--                                </h4>--}}
-{{--                                <p>Мы учавствуем на всех аукционах и сможем выбрать самый выгодный вариант для вас!--}}
-{{--                                </p>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">--}}
-{{--                                <i class="fa fa-truck"></i>--}}
-{{--                                <h4>Надежная доставка--}}
-{{--                                </h4>--}}
-{{--                                <p>Доставим в любой порт. Рассчитываем несколько вариантов доставки в зависимости от--}}
-{{--                                    места расположения аукциона.--}}
-{{--                                </p>--}}
-{{--                            </div>--}}
+                                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+                                    <i class="fa fa-car"></i>
+                                    <h4>{{$abouts[$i]->title}}</h4>
+                                    <p>{{$abouts[$i]->description}}</p>
+                                </div>
                             @endfor
                         </div>
                     </div>
