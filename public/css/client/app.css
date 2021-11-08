@@ -988,6 +988,33 @@ section {
     text-align: center;
   }
 }
+.copart {
+  display: flex;
+}
+.copart .text {
+  width: 50%;
+}
+.copart .text .variants {
+  list-style: none;
+}
+.copart .text .variants li {
+  font-size: 18px;
+}
+.copart .image {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.copart a {
+  color: #cda45e;
+}
+
+.conditions li {
+  padding-bottom: 10px;
+}
+
 #header2 {
   margin-top: 30px;
 }

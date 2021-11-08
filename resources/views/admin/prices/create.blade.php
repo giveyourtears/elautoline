@@ -43,7 +43,7 @@
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="form-group row border-bottom py-3">
                                     <label for="port_id" class="col-sm-2 col-form-label">
-                                        Порт</label>
+                                        Город</label>
                                     <div class="col-sm-10">
                                         <input type="text" hidden class="form-control" name="port_id" id="port_id">
                                         <select class="form-select" aria-label="Default select example" id="port_select">
@@ -57,7 +57,7 @@
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="form-group row border-bottom py-3">
                                     <label for="city_id" class="col-sm-2 col-form-label">
-                                        Город</label>
+                                        Порт</label>
                                     <div class="col-sm-10">
                                         <input type="text" hidden class="form-control" name="city_id" id="city_id">
                                         <select class="form-select" aria-label="Default select example" id="city_select">

@@ -41,8 +41,9 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Город</th>
                                 <th scope="col">Порт</th>
+                                <th scope="col">Город прибытия</th>
                                 <th scope="col">Тип транспорта</th>
-                                <th scope="col">Цена по суши</th>
+                                <th scope="col">Цена</th>
                                 <th scope="col">Действия</th>
                             </tr>
                             </thead>
@@ -52,11 +53,12 @@
                                     <th scope="row">{{$loop->iteration}}</th>
                                     <td>{{$price->portName}}</td>
                                     <td>{{$price->cityName}}</td>
+                                    <td>{{$price->city}}</td>
                                     <td>{{$price->typeName}}</td>
                                     <td>{{$price->price_city}}</td>
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <a href="/admin/prices/{{$price->id}}/edit" class="btn btn-success mr-1">
+                                            <a href="/admin/prices/{{$price->id}}/edit?city={{$price->city}}" class="btn btn-success mr-1">
                                                 <span class="bi bi-pencil-fill"></span>
                                             </a>
                                             <form action="{{ URL::route('admin.prices.destroy', $price->id) }}" method="POST" class="btn btn-danger">

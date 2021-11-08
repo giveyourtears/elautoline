@@ -59,6 +59,8 @@
                     <li><a class="nav-link scrollto active" href="">Главная</a></li>
                     <li><a class="nav-link scrollto" href="/about">О нас</a></li>
                     <li><a class="nav-link scrollto" href="/delivery">Доставка</a></li>
+                    <li><a class="nav-link scrollto" href="/find">Поиск авто</a></li>
+                    <li><a class="nav-link scrollto" href="/conditions">Условия</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>

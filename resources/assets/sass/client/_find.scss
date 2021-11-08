@@ -1,0 +1,28 @@
+.copart {
+    display: flex;
+    .text {
+        width: 50%;
+        .variants {
+            list-style: none;
+            li {
+                font-size: 18px;
+            }
+        }
+    }
+    .image {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    a {
+        color: #cda45e;
+    }
+}
+
+.conditions {
+    li {
+        padding-bottom: 10px;
+    }
+}

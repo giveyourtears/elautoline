@@ -47,6 +47,7 @@
                                     <label for="port_id" class="col-sm-2 col-form-label">
                                         Порт</label>
                                     <div class="col-sm-10">
+
                                         <input type="text" hidden class="form-control" name="port_id" id="port_id"
                                                value="{{$price->port_id}}">
                                         <select class="form-select" aria-label="Default select example"
@@ -68,7 +69,7 @@
                                         <select class="form-select" aria-label="Default select example"
                                                 id="city_select">
                                             @foreach($cities as $city)
-                                                <option value="{{$city->id}}">{{$city->name}}</option>
+                                                <option value="{{$city->name}}">{{$city->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -93,20 +94,18 @@
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="form-group row border-bottom py-3">
                                     <label for="price_city" class="col-sm-2 col-form-label">
-                                        Цена по морю</label>
+                                        Цена по суши</label>
                                     <div class="col-sm-10">
-                                        <input type="number" step="any" class="form-control" name="price_city"
-                                               id="price_city" value="{{$price->price_city}}">
+                                        <input type="number" step="any" class="form-control" name="price_city" id="price_city">
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="tab-pane fade show active" hidden id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="form-group row border-bottom py-3">
-                                    <label for="price_type" class="col-sm-2 col-form-label">
-                                        Цена по суши</label>
+                                    <label for="city_name" class="col-sm-2 col-form-label">
+                                        test</label>
                                     <div class="col-sm-10">
-                                        <input type="number" step="any" class="form-control" name="price_type"
-                                               id="price_type" value="{{$price->price_type}}">
+                                        <input type="text" value="{{$test}}" step="any" class="form-control" name="city_name" id="city_name">
                                     </div>
                                 </div>
                             </div>

@@ -15,7 +15,7 @@
                     <div class="content">
                         <h3>{{$abouts[0]->title}}</h3>
                         <p>
-                            {{$abouts[0]->description}} <strong>Вы</strong> выбрали именно нас.
+                            {{$abouts[0]->description}}
                         </p>
                         <a href="/" class="about-btn"><span>Главная</span> <i class="fa fa-arrow-right"
                                                                               style="font-size: 12px; padding-left: 10px"></i></a>

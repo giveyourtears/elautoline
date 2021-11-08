@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\PortsController;
 use App\Http\Controllers\Admin\VehicleTypesController;
 use App\Http\Controllers\Client\CalculatorDeliveryController;
 use App\Http\Controllers\Client\CarController;
+use App\Http\Controllers\Client\ConditionController;
+use App\Http\Controllers\Client\FindController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\AboutController;
@@ -38,6 +40,8 @@ use App\Http\Controllers\Admin\OrdersController;
 
 Route::post('/', [HomeController::class, 'index'])->name('client.home');
 Route::get('/', [HomeController::class, 'index'])->name('client.home');
+Route::get('/find', [FindController ::class, 'index'])->name('client.find');
+Route::get('/conditions', [ConditionController ::class, 'index'])->name('client.conditions');
 Route::get('/about', [AboutController::class, 'index'])->name('client.about');
 Route::post('/request/add', [RequestController::class, 'add'])->name('client.request.add');
 Route::get('/delivery', [CalculatorDeliveryController::class, 'index'])->name('client.delivery.add');
